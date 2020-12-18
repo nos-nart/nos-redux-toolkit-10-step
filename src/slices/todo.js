@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  data: {},
+  data: [],
   message: ''
 }
 
@@ -11,14 +11,16 @@ export const TodoSlice = createSlice({
   reducers: {
     add: (state, action) => {
       const { id, title } = action.payload;
-      state.data[id] = {
-        label: title,
-        complete: false
-      }
-      state = {
-        ...state,
-        message: 'add success!'
-      }
+      state.data.push({ id, title, complete: false })
+    },
+    remove: (state, action) => {
+      const { id } = action.payload;
+      state.data = state.data.filter(i => i.id !== id);
+    },
+    toggleComplete: (state, action) => {
+      const { id } = action.payload;
+      const index = state.data.findIndex(i => i.id === id);
+      state.data[index].complete = !state.data[index].complete;
     }
   }
 })

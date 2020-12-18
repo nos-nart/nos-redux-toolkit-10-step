@@ -1,20 +1,11 @@
-.container {
-  max-width: 400px;
+.wFull {
   width: 100%;
-  margin: 0 auto;
 }
 
-.flex {
-  display: flex;
+.lineThrough {
+  text-decoration: line-through;
 }
 
-.button {
-  width: 4rem;
-}
-
-.input {
-  border: 1px solid teal;
-  outline: none;
-  padding: 10px 20px;
-  flex-grow: 1;
+.textCenter {
+  text-align: center;
 }
